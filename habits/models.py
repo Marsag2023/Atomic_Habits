@@ -41,12 +41,12 @@ class Habit(models.Model):
         **NULLABLE,
     )
     completion_time = models.IntegerField(
-        verbose_name="Время на выполнение привычки",
+        verbose_name="Время на выполнение привычки в секундах",
         default=120,
-        help_text="Укажите время на исполнение рпривычки, не более 120 секунд",
+        help_text="Укажите время на исполнение привычки, не более 120 секунд",
     )
     sing_publicity = models.BooleanField(
-        default=False, verbose_name="Привычка опубликована"
+        default=False, verbose_name="Публичная"
     )
 
     def __str__(self):
