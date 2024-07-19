@@ -22,7 +22,7 @@ class HabitValidator:
                 "Исключен одновременный выбор связанной привычки и указания вознаграждения"
             )
 
-        elif completion_time > 120:
+        elif completion_time and completion_time > 120:
             raise ValidationError("Время выполнения должно быть не больше 120 секунд")
 
         elif linked_habit:
@@ -36,5 +36,5 @@ class HabitValidator:
                 raise ValidationError(
                     "У приятной привычки не может быть вознаграждения или связанной привычки"
                 )
-        elif frequency < 1 or frequency > 7:
+        elif frequency and frequency < 1:
             raise ValidationError("Нельзя выполнять привычку реже, чем 1 раз в 7 дней")

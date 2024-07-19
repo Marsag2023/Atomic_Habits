@@ -45,9 +45,7 @@ class Habit(models.Model):
         default=120,
         help_text="Укажите время на исполнение привычки, не более 120 секунд",
     )
-    sing_publicity = models.BooleanField(
-        default=False, verbose_name="Публичная"
-    )
+    sing_publicity = models.BooleanField(default=False, verbose_name="Публичная")
 
     def __str__(self):
         return f"Я буду {self.action} в {self.time} в {self.place}"

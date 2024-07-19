@@ -1,9 +1,9 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser
+
 from habits.models import Habit
 from habits.pagination import MyPagination
 from habits.serializer import HabitSerializer
-# from habits.tasks import send_notification
 from users.permissions import IsOwner
 
 
@@ -13,7 +13,6 @@ class HabitCreateAPIView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-#        send_notification()
 
 
 class HabitListAPIView(generics.ListAPIView):
