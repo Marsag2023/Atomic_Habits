@@ -189,7 +189,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 CELERY_BEAT_SCHEDULE = {
     "check_habits_and_send_reminders": {
         "task": "habits.tasks.check_habits_and_send_reminders",
-        "schedule": timedelta(days=1),
+        "schedule": timedelta(minutes=1),
     },
 }
 

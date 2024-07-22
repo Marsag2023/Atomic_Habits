@@ -17,6 +17,8 @@ class HabitValidator:
         reward = dict(value).get(self.field4)
         frequency = dict(value).get(self.field5)
 
+        print(frequency, type(frequency))
+
         if linked_habit and reward:
             raise ValidationError(
                 "Исключен одновременный выбор связанной привычки и указания вознаграждения"
@@ -26,7 +28,7 @@ class HabitValidator:
             raise ValidationError("Время выполнения должно быть не больше 120 секунд")
 
         elif linked_habit:
-            if not sing_pleasant:
+            if not linked_habit.sing_pleasant:
                 raise ValidationError(
                     "В связанные привычки могут попадать только привычки с признаком приятной привычки"
                 )
@@ -36,5 +38,6 @@ class HabitValidator:
                 raise ValidationError(
                     "У приятной привычки не может быть вознаграждения или связанной привычки"
                 )
-        elif frequency and frequency < 1:
+
+        if frequency and not (0 < frequency < 8):
             raise ValidationError("Нельзя выполнять привычку реже, чем 1 раз в 7 дней")

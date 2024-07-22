@@ -1,5 +1,5 @@
-from datetime import datetime, timedelta
-
+from datetime import timedelta
+from django.utils import timezone
 from celery import shared_task
 
 from habits.models import Habit
@@ -15,7 +15,7 @@ def check_habits_and_send_reminders():
 
     habits = Habit.objects.all()
     for habit in habits:
-        if habit.frequency >= 1 and habit.time.date() == datetime.now().today().date():
+        if habit.frequency >= 1 and habit.time == (timezone.now()- timedelta(hours=2)):
             user_message = (
                 f"Я буду сегодня {habit.action} в {habit.time.time()} в {habit.place}\n"
             )

@@ -13,7 +13,7 @@ class HabitTestCase(APITestCase):
         self.habit = Habit.objects.create(
             owner=self.user,
             place="TestPlace",
-            time="2024-07-20T10:00",
+            time="2024-07-23T10:00Z",
             action="TestAction",
         )
         self.client.force_authenticate(user=self.user)
@@ -63,7 +63,7 @@ class HabitTestCase(APITestCase):
                 {
                     "id": 4,
                     "place": "TestPlace",
-                    "time": "2024-07-20T10:00:00Z",
+                    "time": "2024-07-23T10:00:00Z",
                     "action": "TestAction",
                     "sing_pleasant": False,
                     "frequency": 1,

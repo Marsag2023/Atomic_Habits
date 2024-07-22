@@ -18,9 +18,3 @@ class HabitSerializer(serializers.ModelSerializer):
                 field5="frequency",
             )
         ]
-
-        # def create(self, validated_data):
-        #     new_habit = Habit.objects.create(**validated_data)
-        #     new_habit.owner = self.context['request'].user
-        #     new_habit.save()
-        #     return new_habit
